@@ -21,7 +21,7 @@ example_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class TestSmoke(unittest.TestCase):
     # test that the example runs without failing
     def test_smoke(self):
-        file_path = os.path.join(example_dir, 'lazy_fixed_embedding_composite.py')
+        file_path = os.path.join(example_dir, 'qpu_embed.py')
 
         value = subprocess.check_output(["python", file_path])
 
