@@ -13,9 +13,10 @@
 # limitations under the License.
 import dimod
 import sys
+from dwave.system.samplers import DWaveSampler
 
 # Friends and enemies problem on a triangle, in QUBO
-# Do the embedding manually here
+# Do the embedding manually
 
 # Use qubits 0, 1, 4, 5
 #
@@ -33,8 +34,9 @@ import sys
 # Constrain qubits 1 and 5 to have the same value, explicitly
 # chainstrength (q_1 + q_5 - 2q_1 q_5)
 
+numruns = 1000
 chainstrength = float(sys.argv[1])
-exactsolver = dimod.ExactSolver()
+sampler = DWaveSampler(solver={'qpu': True})
 
 # Add all the equations together
 Q = {(0, 0): 2, (1, 1): chainstrength,
@@ -46,7 +48,7 @@ Q = {(0, 0): 2, (1, 1): chainstrength,
 
 bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=1)
 
-results = exactsolver.sample(bqm)
+results = sampler.sample(bqm, num_reads=numruns)
 
 # print the results
 for smpl, energy in results.data(['sample', 'energy']):
