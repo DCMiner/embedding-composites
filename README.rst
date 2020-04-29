@@ -12,7 +12,7 @@ Run the command
 
 .. code-block:: bash
 
-  python exact_embed_qubo.py 4
+  python manual_embed_qubo.py 4
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -21,7 +21,7 @@ structure of the program. Notice the basic parts:
 - Obtain a sampler/solver
 - Define the Q matrix
 - Convert the Q matrix to a ``BinaryQuadraticModel``
-- Run the problem, using the sampler/solver ``ExactSolver``
+- Run the problem, using ``DWaveSampler``
 - Print the results
 
 In this exercise, we have explicitly programmed the embedding of qubits 1 
