@@ -8,10 +8,11 @@ from dwave.system.composites import EmbeddingComposite
 # QUBO: 2x - 2xy + 2yz - 2zx - 2
 
 chainstrength = 5
-numruns = 100
+numruns = 1000
 Q = {(0, 0): 2, (0, 1): -2, (0, 2): -2, (1, 2): 2}
 
-response = EmbeddingComposite(DWaveSampler()).sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
+sampler = EmbeddingComposite(DWaveSampler(solver={'qpu': True}))
+response = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
 
 for smpl, energy in response.data(['sample', 'energy']):
     print(smpl, energy)

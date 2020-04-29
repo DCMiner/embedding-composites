@@ -20,8 +20,8 @@ structure of the program. Notice the basic parts:
 - Obtain the chainstrength from the command-line
 - Obtain a sampler/solver
 - Define the Q matrix
-- Convert the Q matrix to a BinaryQuadraticModel
-- Run the problem, using the sampler/solver ExactSolver
+- Convert the Q matrix to a ``BinaryQuadraticModel``
+- Run the problem, using the sampler/solver ``ExactSolver``
 - Print the results
 
 In this exercise, we have explicitly programmed the embedding of qubits 1 
@@ -53,17 +53,17 @@ Read through the code and take a look at the
 structure of the program. Notice the basic parts:
 
 - Define the Q matrix
-- Run the problem, using EmbeddingComposite(DWaveSampler)
+- Run the problem, using ``EmbeddingComposite(DWaveSampler)``
 - Print the results
 
 In this exercise, we submit the triangle problem directly as a QUBO
-matrix, and we know that on the Chimera architecture, EmbeddingComposite
+matrix, and we know that on the Chimera architecture, ``EmbeddingComposite``
 will embed the triangle onto four physical qubits.
 For chainstrength 5 (which is hard-coded in the program), the first six 
 solutions should have the same energy, zero. One constraint is broken, and
 we haven't used an energy offset, so the energy is zero.
 
-This program does not print the embedding used by EmbeddingComposite.
+This program does not print the embedding used by ``EmbeddingComposite``.
 It is possible to return the embedding but we don't do it here.
 
 Exercise 3
@@ -79,12 +79,12 @@ Read through the code and take a look at the
 structure of the program. Notice the basic parts:
 
 - Define the Q matrix
-- Run the problem, using EmbeddingComposite(DWaveSampler)
+- Run the problem, using ``LazyEmbeddingComposite(DWaveSampler)``
 - Print the results
 
 In this exercise, we submit the triangle problem directly as a QUBO
 matrix, and we know that on the Chimera architecture, 
-LazyFixedEmbeddingComposite will embed the triangle onto four physical 
+``LazyFixedEmbeddingComposite`` will embed the triangle onto four physical 
 qubits. For chainstrength 4, the first six solutions should have the same 
 energy, zero, as in the previous exercise.
 
@@ -109,13 +109,13 @@ Read through the code and take a look at the
 structure of the program. Notice the basic parts:
 
 - Define the Q matrix
-- Run the problem, using EmbeddingComposite(DWaveSampler)
+- Run the problem, using ``FixedEmbeddingComposite(DWaveSampler)``
 - Print the results
 
 Like the previous exercises, we submit the triangle problem directly as a 
-QUBO matrix. In this program, though, we use Ocean's minorminer to explicitly
-find the embedding, and then we input the embedding into
-FixedEmbeddingComposite. For chainstrength 2 (hard-coded), the first six 
+QUBO matrix. In this program, though, we use Ocean's ``minorminer`` to 
+explicitly find the embedding, and then we input the embedding into
+``FixedEmbeddingComposite``. For chainstrength 2 (hard-coded), the first six 
 solutions should have the same energy, zero, as in the previous exercise.
 
 This program prints the embedding before it prints the six solutions.

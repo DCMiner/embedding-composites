@@ -37,7 +37,12 @@ chainstrength = float(sys.argv[1])
 exactsolver = dimod.ExactSolver()
 
 # Add all the equations together
-Q = {(0, 0): 2, (1, 1): chainstrength, (5, 5): chainstrength, (0, 4): -2, (1, 4): 2, (0, 5): -2, (1, 5): -2 * chainstrength}
+Q = {(0, 0): 2, (1, 1): chainstrength,
+     (5, 5): chainstrength,
+     (0, 4): -2,
+     (1, 4): 2,
+     (0, 5): -2,
+     (1, 5): -2 * chainstrength}
 
 bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=1)
 
