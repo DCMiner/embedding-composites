@@ -1,6 +1,6 @@
-========= ==========
+====================
 Embedding Composites
-========= ==========
+====================
 
 This exercise contains four small programs which illustrate the use of 
 embedding, and embedding composites, in Ocean and on the D-Wave QPU.
