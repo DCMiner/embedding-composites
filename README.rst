@@ -127,3 +127,24 @@ Note also that two additional columns have been added, ``num_occurrences`` and
 energy and there is no reason to prefer one over another. There should be
 no chain breaks in those first six solutions. There may be additional
 solutions, of higher energy, which may include chain breaks.
+
+Exercise 5
+-------- -
+
+The program ``embedding_assignment.py`` is an exercise for students.
+It is a Friends & Enemies problem with 5 individuals.
+In our training course, we discuss this problem and how to create a QUBO to 
+solve it.
+
+Students are given the graph, and must create the QUBO dictionary (Q) that is 
+provided to the D-Wave QPU and choose appropriate values for chainstrength and 
+numruns.
+
+To run your program type python embedding_assignment.py. You have successfully 
+completed the exercise when you are able to see output showing two solutions
+to the problem:
+    ``{0: 1, 1: 1, 2: 0, 3: 0, 4: 1} -2.0``
+    ``{0: 0, 1: 0, 2: 1, 3: 1, 4: 0} -2.0``
+
+The string is the ``sample``, and the second is the energy. There should be
+two lowest-energy states for the problem.
