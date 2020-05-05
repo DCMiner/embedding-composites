@@ -39,7 +39,8 @@ chainstrength = float(sys.argv[1])
 sampler = DWaveSampler(solver={'qpu': True})
 
 # Add all the equations together
-Q = {(0, 0): 2, (1, 1): chainstrength,
+Q = {(0, 0): 2, 
+     (1, 1): chainstrength,
      (5, 5): chainstrength,
      (0, 4): -2,
      (1, 4): 2,
