@@ -17,7 +17,7 @@ Run the command
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
 
-- Obtain the chainstrength from the command-line
+- Obtain the ``chainstrength`` from the command-line
 - Obtain a sampler/solver
 - Define the Q matrix
 - Convert the Q matrix to a ``BinaryQuadraticModel``
@@ -25,20 +25,20 @@ structure of the program. Notice the basic parts:
 - Print the results
 
 In this exercise, we have explicitly programmed the embedding of qubits 1 
-and 5 into a chain. If you run the program with chainstrength 4 (the first
+and 5 into a chain. If you run the program with ``chainstrength`` 4 (the first
 command-line parameter), you should see that the first six solutions have 
 energy 1. They have energy 1 because one of the constraints is violated;
 the two friend relationships and one enemy relationship are not simultaneously
 solvable.
 
-If you run the program with chainstrength 0.4, you will see a different
+If you run the program with ``chainstrength`` 0.4, you will see a different
 solution with lowest energy, and that solution has different values in
 qubits 1 and 5, which shows that the chain between them is broken.
 
-If you increase the chainstrength from 0.4, up to the value of 2, the
+If you increase the ``chainstrength`` from 0.4, up to the value of 2, the
 solution with the broken chain will eventually disappear, indicating that
-the chainstrength has become sufficient to balance the strength of the terms 
-in the QUBO.
+the ``chainstrength`` has become sufficient to balance the strength of the 
+terms in the QUBO.
 
 Exercise 2 
 ----------
@@ -59,7 +59,7 @@ structure of the program. Notice the basic parts:
 In this exercise, we submit the triangle problem directly as a QUBO
 matrix, and we know that on the Chimera architecture, ``EmbeddingComposite``
 will embed the triangle onto four physical qubits.
-For chainstrength 5 (which is hard-coded in the program), the first six 
+For ``chainstrength`` 5 (which is hard-coded in the program), the first six 
 solutions should have the same energy, zero. One constraint is broken, and
 we haven't used an energy offset, so the energy is zero.
 
@@ -85,7 +85,7 @@ structure of the program. Notice the basic parts:
 In this exercise, we submit the triangle problem directly as a QUBO
 matrix, and we know that on the Chimera architecture, 
 ``LazyFixedEmbeddingComposite`` will embed the triangle onto four physical 
-qubits. For chainstrength 4, the first six solutions should have the same 
+qubits. For ``chainstrength`` 4, the first six solutions should have the same 
 energy, zero, as in the previous exercise.
 
 This program prints the embedding before it prints the six solutions.
@@ -115,8 +115,8 @@ structure of the program. Notice the basic parts:
 Like the previous exercises, we submit the triangle problem directly as a 
 QUBO matrix. In this program, though, we use Ocean's ``minorminer`` to 
 explicitly find the embedding, and then we input the embedding into
-``FixedEmbeddingComposite``. For chainstrength 2 (hard-coded), the first six 
-solutions should have the same energy, zero, as in the previous exercise.
+``FixedEmbeddingComposite``. For ``chainstrength`` 2 (hard-coded), the first 
+six solutions should have the same energy, zero, as in the previous exercise.
 
 This program prints the embedding before it prints the six solutions.
 It should like similar to the embedding found in the previous exercise.
@@ -129,7 +129,7 @@ no chain breaks in those first six solutions. There may be additional
 solutions, of higher energy, which may include chain breaks.
 
 Exercise 5
--------- -
+----------
 
 The program ``embedding_assignment.py`` is an exercise for students.
 It is a Friends & Enemies problem with 5 individuals.
@@ -137,14 +137,16 @@ In our training course, we discuss this problem and how to create a QUBO to
 solve it.
 
 Students are given the graph, and must create the QUBO dictionary (Q) that is 
-provided to the D-Wave QPU and choose appropriate values for chainstrength and 
-numruns.
+provided to the D-Wave QPU and choose appropriate values for ``chainstrength``
+and ``numruns``.
 
-To run your program type python embedding_assignment.py. You have successfully 
-completed the exercise when you are able to see output showing two solutions
-to the problem:
-    ``{0: 1, 1: 1, 2: 0, 3: 0, 4: 1} -2.0``
-    ``{0: 0, 1: 0, 2: 1, 3: 1, 4: 0} -2.0``
+To run your program type ``python embedding_assignment.py``. You have 
+successfully completed the exercise when you are able to see output showing 
+two solutions to the problem:
+::
 
-The string is the ``sample``, and the second is the energy. There should be
-two lowest-energy states for the problem.
+    {0: 1, 1: 1, 2: 0, 3: 0, 4: 1} -2.0
+    {0: 0, 1: 0, 2: 1, 3: 1, 4: 0} -2.0
+
+The string is the ``sample``, and the second is the ``energy``. There should 
+be two lowest-energy states for the problem.

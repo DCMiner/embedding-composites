@@ -23,11 +23,7 @@ def get_token():
 
 # TODO:  Add code here to define your QUBO dictionary
 def get_qubo():
-    """Returns a dictionary representing a QUBO.
-
-    Args:
-        None
-    """
+    """Returns a dictionary representing a QUBO"""
 
     Q = {}
 
@@ -47,7 +43,9 @@ def run_on_qpu(Q, sampler):
     chainstrength = 1 # update
     numruns = 1 # update
 
-    sample_set = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
+    sample_set = sampler.sample_qubo(Q, 
+                                     chain_strength=chainstrength, 
+                                     num_reads=numruns)
 
     return sample_set
 
@@ -63,7 +61,10 @@ if __name__ == "__main__":
 
     ## ------- Run our QUBO on the QPU -------
 
-    sampler = EmbeddingComposite(DWaveSampler(endpoint='https://cloud.dwavesys.com/sapi/', token=token, solver={'qpu': True}))
+    sampler = EmbeddingComposite(DWaveSampler(
+                                 endpoint='https://cloud.dwavesys.com/sapi/', 
+                                 token=token, 
+                                 solver={'qpu': True}))
 
     sample_set = run_on_qpu(Q, sampler)
 
