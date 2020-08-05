@@ -96,14 +96,14 @@ we haven't used an energy offset, so the energy is zero.
 This program does not print the embedding used by ``EmbeddingComposite``.
 It is possible to return the embedding but we don't do it here.
 
-Exercise 3
+Exercise 3a
 ----------
 
 Run the command
 
 .. code-block:: bash
 
-  python lazy_fixed_embedding_composite.py
+  python lazy_fixed_embedding_composite_chimera.py
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -125,6 +125,34 @@ The embedding may look something like this:
 
 Variables 0 and 1 are represented by a single physical qubit, and variable 2
 is represented by a chain of 2 qubits.
+
+Exercise 3b
+----------
+
+Run the command
+
+.. code-block:: bash
+
+  python lazy_fixed_embedding_composite_pegasus.py
+
+Read through the code and take a look at the
+structure of the program. Notice the basic parts:
+
+- Define the Q matrix
+- Run the problem, using ``EmbeddingComposite(DWaveSampler)``
+- Print the results
+
+In this exercise, we submit the triangle problem directly as a QUBO
+matrix, and we know that on the Pegasus architecture, ``EmbeddingComposite``
+will embed the triangle onto three physical qubits, so there will be no
+chains. There should be the same six solutions.
+
+This program prints the embedding before it prints the six solutions.
+The embedding may look something like this:
+
+``{0: [4371], 1: [1268], 2: [4356]}``
+
+As discussed in Exercise 2b, a single physical qubit is mapped to each logical qubit. The ``chainstrength`` shouldn't matter here since there are no chains.
 
 Exercise 4
 ----------
