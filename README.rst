@@ -42,14 +42,14 @@ terms in the QUBO.
 
 Qubits 0, 1, 4 and 5 are found in the first unit cell in a Chimera QPU.
 
-Exercise 2 
+Exercise 2a 
 ----------
 
 Run the command
 
 .. code-block:: bash
 
-  python qpu_embed.py
+  python qpu_embed_chimera.py
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -63,6 +63,34 @@ matrix, and we know that on the Chimera architecture, ``EmbeddingComposite``
 will embed the triangle onto four physical qubits.
 For ``chainstrength`` 5 (which is hard-coded in the program), the first six 
 solutions should have the same energy, zero. One constraint is broken, and
+we haven't used an energy offset, so the energy is zero.
+
+This program does not print the embedding used by ``EmbeddingComposite``.
+It is possible to return the embedding but we don't do it here.
+
+Exercise 2b
+----------
+
+Run the command
+
+.. code-block:: bash
+
+  python qpu_embed_pegasus.py 5
+
+Read through the code and take a look at the
+structure of the program. Notice the basic parts:
+
+- Define the Q matrix
+- Run the problem, using ``EmbeddingComposite(DWaveSampler)``
+- Print the results
+
+In this exercise, we submit the triangle problem directly as a QUBO
+matrix, and we know that on the Pegasus architecture, ``EmbeddingComposite``
+will embed the triangle onto three physical qubits, so there will be no
+chains.
+In this problem, the ``chainstrength`` 5 shouldn't matter at all; try
+different positive values. There should be the same solutions as in the
+previous problem; energy zero. One constraint is broken, and
 we haven't used an energy offset, so the energy is zero.
 
 This program does not print the embedding used by ``EmbeddingComposite``.
