@@ -12,13 +12,13 @@ Run the command
 
 .. code-block:: bash
 
-  python manual_embed_qubo.py 4
+  python manual_embed_qubo_chimera.py 4
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
 
 - Obtain the ``chainstrength`` from the command-line
-- Obtain a sampler/solver
+- Obtain a Chimera sampler/solver
 - Define the Q matrix
 - Convert the Q matrix to a ``BinaryQuadraticModel``
 - Run the problem, using ``DWaveSampler``
@@ -39,6 +39,8 @@ If you increase the ``chainstrength`` from 0.4, up to the value of 2, the
 solution with the broken chain will eventually disappear, indicating that
 the ``chainstrength`` has become sufficient to balance the strength of the 
 terms in the QUBO.
+
+Qubits 0, 1, 4 and 5 are found in the first unit cell in a Chimera QPU.
 
 Exercise 2 
 ----------
