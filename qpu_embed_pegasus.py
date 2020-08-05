@@ -12,8 +12,7 @@ chainstrength = float(sys.argv[1])
 numruns = 1000
 Q = {(0, 0): 2, (0, 1): -2, (0, 2): -2, (1, 2): 2}
 
-#sampler = EmbeddingComposite(DWaveSampler(profile='bay17_prod', solver='Advantage_beta'))
-sampler = EmbeddingComposite(DWaveSampler(topology_typee='pegasus'))
+sampler = EmbeddingComposite(DWaveSampler(profile='bay17_prod', solver='Advantage_beta'))
 response = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
 
 for smpl, energy in response.data(['sample', 'energy']):
