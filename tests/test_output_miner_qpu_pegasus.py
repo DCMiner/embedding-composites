@@ -21,9 +21,9 @@ example_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class TestSmoke(unittest.TestCase):
     # test that the example runs without failing
     def test_smoke(self):
-        file_path = os.path.join(example_dir, 'miner_qpu.py')
+        file_path = os.path.join(example_dir, 'miner_qpu_pegasus.py')
 
-        value = subprocess.check_output(["python", file_path])
+        value = subprocess.check_output(["python", file_path, "4"])
 
         # Check the expected energy
         str1 = '{0: 0, 1: 0, 2: 1} 0.0'
