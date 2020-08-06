@@ -2,8 +2,8 @@
 Embedding Composites
 ====================
 
-This exercise contains four small programs which illustrate the use of 
-embedding, and embedding composites, in Ocean and on the D-Wave QPU.
+This exercise contains seven small programs which illustrate the use of 
+embedding, and embedding composites, in Ocean and on the D-Wave QPUs.
 
 Exercise 1 
 ----------
@@ -154,14 +154,14 @@ The embedding may look something like this:
 
 As discussed in Exercise 2b, a single physical qubit is mapped to each logical qubit. The ``chainstrength`` shouldn't matter here since there are no chains.
 
-Exercise 4
+Exercise 4a
 ----------
 
 Run the command
 
 .. code-block:: bash
 
-  python miner_qpu.py
+  python miner_qpu_chimera.py
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -177,7 +177,7 @@ explicitly find the embedding, and then we input the embedding into
 six solutions should have the same energy, zero, as in the previous exercise.
 
 This program prints the embedding before it prints the six solutions.
-It should like similar to the embedding found in the previous exercise.
+It should look similar to the embedding found in the previous exercise.
 
 Note also that two additional columns have been added, ``num_occurrences`` and
 ``chain_break_fraction``. The values of ``num_occurrences`` should be close to 
@@ -185,6 +185,38 @@ Note also that two additional columns have been added, ``num_occurrences`` and
 energy and there is no reason to prefer one over another. There should be
 no chain breaks in those first six solutions. There may be additional
 solutions, of higher energy, which may include chain breaks.
+
+Exercise 4b
+----------
+
+Run the command
+
+.. code-block:: bash
+
+  python miner_qpu_pegasus.py
+
+Read through the code and take a look at the
+structure of the program. Notice the basic parts:
+
+- Define the Q matrix
+- Run the problem, using ``FixedEmbeddingComposite(DWaveSampler)``
+- Print the results
+
+Like the previous exercises, we submit the triangle problem directly as a 
+QUBO matrix. 
+
+In this program, though, we use Ocean's ``minorminer`` to 
+explicitly find the embedding, and then we input the embedding into
+``FixedEmbeddingComposite``. We know that on the Pegasus architecture, 
+the triangle will be embedded onto three physical qubits, so there will be no
+chains. For any ``chainstrength``, the six solutions should have the same 
+energy, zero, as in the previous exercise.
+
+Note also that two additional columns have been added, ``num_occurrences`` and
+``chain_break_fraction``. The values of ``num_occurrences`` should be close to 
+1000/6 for the first six solutions, because those solutions are equal in
+energy and there is no reason to prefer one over another. There should be
+no chain breaks in those first six solutions.
 
 Exercise 5
 ----------
