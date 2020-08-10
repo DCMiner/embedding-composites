@@ -21,7 +21,7 @@ from dwave.system.samplers import DWaveSampler
 # Use qubits 0, 1, 4, 5
 #
 # Constrain qubits 0 and 4 to have the same value
-# q_0 + q_4 - 2 q_0 q_4
+# q_0 + q_4 - 2 q_0 q_4 - 1
 #
 # Constrain qubits 1 and 4 to have opposite values - but notice that we're
 # going to embed qubits 1 and 5 to have the same value
@@ -29,17 +29,17 @@ from dwave.system.samplers import DWaveSampler
 #
 # Constrain qubits 0 and 5 to have the same value - and yes, we will embed
 # 1 and 5 to have the same value
-# q_0 + 0.5 (q_1 + q_5) - 2 q_0 q_5
+# q_0 + 0.5 (q_1 + q_5) - 2 q_0 q_5 - 1
 #
 # Constrain qubits 1 and 5 to have the same value, explicitly
-# chainstrength (q_1 + q_5 - 2q_1 q_5)
+# chainstrength (q_1 + q_5 - 2q_1 q_5 - 1)
 
 numruns = 1000
 chainstrength = float(sys.argv[1])
 sampler = DWaveSampler(solver={'topology__type__eq': 'chimera'})
 
 # Add all the equations together
-Q = {(0, 0): 2, 
+Q = {(0, 0): 2,
      (1, 1): chainstrength,
      (5, 5): chainstrength,
      (0, 4): -2,
@@ -47,7 +47,7 @@ Q = {(0, 0): 2,
      (0, 5): -2,
      (1, 5): -2 * chainstrength}
 
-bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=1)
+bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-1-chainstrength)
 
 results = sampler.sample(bqm, num_reads=numruns)
 
