@@ -8,11 +8,13 @@ embedding, and embedding composites, in Ocean and on the D-Wave QPUs.
 Exercise 1 
 ----------
 
-Run the command
+At the command line, run the command
 
 .. code-block:: bash
 
   python manual_embed_qubo_chimera.py 4
+
+If you're running in the Leap IDE, open a Terminal, and then run this command.
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -47,11 +49,13 @@ Qubits 0, 1, 4 and 5 are found in the first unit cell in a Chimera QPU.
 Exercise 2a 
 -----------
 
-Run the command
+At the command line, run the command
 
 .. code-block:: bash
 
   python qpu_embed_chimera.py 4
+
+If you're running in the Leap IDE, open a Terminal, and then run this command.
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -82,6 +86,8 @@ Run the command
 .. code-block:: bash
 
   python qpu_embed_pegasus.py 4
+
+If you're running in the Leap IDE, open a Terminal, and then run this command.
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -114,6 +120,8 @@ Run the command
 .. code-block:: bash
 
   python lazy_fixed_embedding_composite_chimera.py 4
+
+If you're running in the Leap IDE, open a Terminal, and then run this command.
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -149,6 +157,8 @@ Run the command
 
   python lazy_fixed_embedding_composite_pegasus.py 4
 
+If you're running in the Leap IDE, open a Terminal, and then run this command.
+
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
 
@@ -180,6 +190,8 @@ Run the command
 .. code-block:: bash
 
   python miner_qpu_chimera.py 4
+
+If you're running in the Leap IDE, open a Terminal, and then run this command.
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -217,6 +229,8 @@ Run the command
 .. code-block:: bash
 
   python miner_qpu_pegasus.py
+
+If you're running in the Leap IDE, open a Terminal, and then run this command.
 
 Read through the code and take a look at the
 structure of the program. Notice the basic parts:
@@ -258,7 +272,12 @@ Students are given the graph, and must create the QUBO dictionary (Q) that is
 provided to the D-Wave QPU and choose appropriate values for ``chainstrength``
 and ``numruns``.
 
-To run your program type ``python embedding_assignment.py``. You have 
+To run your program at the command line, 
+type ``python embedding_assignment.py``. 
+
+If you're running in the Leap IDE, open a Terminal, and then run this command.
+
+You have 
 successfully completed the exercise when you are able to see output showing 
 two solutions to the problem:
 ::
