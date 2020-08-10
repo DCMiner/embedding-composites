@@ -23,7 +23,7 @@ class TestSmoke(unittest.TestCase):
     def test_smoke(self):
         file_path = os.path.join(example_dir, 'miner_qpu_chimera.py')
 
-        value = subprocess.check_output(["python", file_path])
+        value = subprocess.check_output(["python", file_path, "4"])
 
         # Check the expected energy
         str1 = '{0: 0, 1: 0, 2: 1} 0.0'

@@ -15,6 +15,7 @@
 from minorminer import find_embedding
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import FixedEmbeddingComposite
+import sys
 
 # Set up the QUBO. Start with the equations:
 # x + y - 2xy -1
@@ -23,10 +24,10 @@ from dwave.system.composites import FixedEmbeddingComposite
 # QUBO: 2x - 2xy + 2yz - 2zx - 2
 Q = {(0, 0): 2, (0, 1): -2, (0, 2): -2, (1, 2): 2}
 
-chainstrength = 2
+chainstrength = float(sys.argv[1])
 numruns = 1000
 
-dwave_sampler = DWaveSampler(solver={'qpu': True})
+dwave_sampler = DWaveSampler(solver={'topology__type__eq': 'chimera'})
 edges =  dwave_sampler.edgelist
 embedding = find_embedding(Q, edges)
 print(embedding)
