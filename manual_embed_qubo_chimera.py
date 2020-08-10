@@ -36,7 +36,7 @@ from dwave.system.samplers import DWaveSampler
 
 numruns = 1000
 chainstrength = float(sys.argv[1])
-sampler = DWaveSampler(solver={'qpu': True})
+sampler = DWaveSampler(solver={'topology__type__eq': 'chimera'})
 
 # Add all the equations together
 Q = {(0, 0): 2, 

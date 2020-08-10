@@ -43,7 +43,7 @@ terms in the QUBO.
 Qubits 0, 1, 4 and 5 are found in the first unit cell in a Chimera QPU.
 
 Exercise 2a 
-----------
+-----------
 
 Run the command
 
@@ -69,7 +69,7 @@ This program does not print the embedding used by ``EmbeddingComposite``.
 It is possible to return the embedding but we don't do it here.
 
 Exercise 2b
-----------
+-----------
 
 Run the command
 
@@ -97,7 +97,7 @@ This program does not print the embedding used by ``EmbeddingComposite``.
 It is possible to return the embedding but we don't do it here.
 
 Exercise 3a
-----------
+-----------
 
 Run the command
 
@@ -127,7 +127,7 @@ Variables 0 and 1 are represented by a single physical qubit, and variable 2
 is represented by a chain of 2 qubits.
 
 Exercise 3b
-----------
+-----------
 
 Run the command
 
@@ -155,7 +155,7 @@ The embedding may look something like this:
 As discussed in Exercise 2b, a single physical qubit is mapped to each logical qubit. The ``chainstrength`` shouldn't matter here since there are no chains.
 
 Exercise 4a
-----------
+-----------
 
 Run the command
 
@@ -187,7 +187,7 @@ no chain breaks in those first six solutions. There may be additional
 solutions, of higher energy, which may include chain breaks.
 
 Exercise 4b
-----------
+-----------
 
 Run the command
 
