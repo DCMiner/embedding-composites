@@ -16,6 +16,7 @@ from minorminer import find_embedding
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import FixedEmbeddingComposite
 import sys
+import dimod
 
 # Set up the QUBO. Start with the equations:
 # x + y - 2xy -1
@@ -23,6 +24,7 @@ import sys
 # -2zx + z + x - 1
 # QUBO: 2x - 2xy + 2yz - 2zx - 2
 Q = {(0, 0): 2, (0, 1): -2, (0, 2): -2, (1, 2): 2}
+bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-2)
 
 chainstrength = float(sys.argv[1])
 numruns = 1000
@@ -33,7 +35,7 @@ embedding = find_embedding(Q, edges)
 print(embedding)
 
 sampler = FixedEmbeddingComposite(dwave_sampler, embedding)
-response = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
+response = sampler.sample(bqm, chain_strength=chainstrength, num_reads=numruns)
 
 for sample, energy, num, cbf in response.data(['sample', 'energy', 'num_occurrences', 'chain_break_fraction']):
     print(sample, energy, num, cbf)
