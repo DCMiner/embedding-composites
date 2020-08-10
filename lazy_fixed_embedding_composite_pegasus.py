@@ -15,14 +15,16 @@
 from dwave.system.samplers import DWaveSampler
 from dwave.system.composites import LazyFixedEmbeddingComposite
 import sys
+import dimod
 
 # Set up the QUBO. Start with the equations from the slides:
 chainstrength = float(sys.argv[1])
 numruns = 1000
 Q = {(0, 0): 2, (0, 1): -2, (0, 2): -2, (1, 2): 2}
+bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-2)
 
 sampler = LazyFixedEmbeddingComposite(DWaveSampler(solver={'topology__type__eq': 'pegasus'}))
-response = sampler.sample_qubo(Q, chain_strength=chainstrength, num_reads=numruns)
+response = sampler.sample(bqm, chain_strength=chainstrength, num_reads=numruns)
 print(sampler.properties['embedding'])
 
 for sample, energy in response.data(['sample', 'energy']):
