@@ -21,17 +21,17 @@ example_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class TestSmoke(unittest.TestCase):
     # test that the example runs without failing
     def test_smoke(self):
-        file_path = os.path.join(example_dir, 'miner_qpu.py')
+        file_path = os.path.join(example_dir, 'qpu_embed_pegasus.py')
 
-        value = subprocess.check_output(["python", file_path])
+        value = subprocess.check_output(["python", file_path, "4"])
 
         # Check the expected energy
-        str1 = '{0: 0, 1: 0, 2: 1} 0.0'
-        str2 = '{0: 1, 1: 1, 2: 1} 0.0'
-        str3 = '{0: 0, 1: 0, 2: 0} 0.0'
-        str4 = '{0: 1, 1: 1, 2: 0} 0.0'
-        str5 = '{0: 0, 1: 1, 2: 0} 0.0'
-        str6 = '{0: 1, 1: 0, 2: 1} 0.0'
+        str1 = '{0: 0, 1: 0, 2: 1} -2.0'
+        str2 = '{0: 1, 1: 1, 2: 1} -2.0'
+        str3 = '{0: 0, 1: 0, 2: 0} -2.0'
+        str4 = '{0: 1, 1: 1, 2: 0} -2.0'
+        str5 = '{0: 0, 1: 1, 2: 0} -2.0'
+        str6 = '{0: 1, 1: 0, 2: 1} -2.0'
         self.assertTrue(str1 in str(value))
         self.assertTrue(str2 in str(value))
         self.assertTrue(str3 in str(value))
