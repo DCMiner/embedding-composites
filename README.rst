@@ -8,7 +8,7 @@ embedding, and embedding composites, in Ocean and on the D-Wave QPUs.
 Exercise 1 
 ----------
 
-At the command line, run the command
+At the command line, run the command:
 
 .. code-block:: bash
 
@@ -33,7 +33,7 @@ command-line parameter), you should see that the first six solutions have
 energy -4. They have energy -4 because one of the constraints is violated;
 the two friend relationships and one enemy relationship are not simultaneously
 solvable. That constraint has a penalty of 1, and we are using an offset of
--``chainstrength``-1 in the code, so the energy is should be -4.
+-``chainstrength-1`` in the code, so the energy is should be -4.
 
 If you run the program with ``chainstrength`` 0.4, you will see a different
 solution with lowest energy, and that solution has different values in
@@ -49,7 +49,7 @@ Qubits 0, 1, 4 and 5 are found in the first unit cell in a Chimera QPU.
 Exercise 2a 
 -----------
 
-At the command line, run the command
+At the command line, run the command:
 
 .. code-block:: bash
 
@@ -75,13 +75,10 @@ For ``chainstrength`` 4, the first six
 solutions should have the same energy, -2. One constraint is broken, and
 if all the relationships held, the energy would be -3, so the energy is -2.
 
-This program does not print the embedding used by ``EmbeddingComposite``.
-It is possible to return the embedding but we don't do it here.
-
 Exercise 2b
 -----------
 
-Run the command
+Run the command:
 
 .. code-block:: bash
 
@@ -109,13 +106,10 @@ different positive values. There should be the same solutions as in the
 previous problem; energy -2. One constraint is broken, and
 if all the relationships held, the energy would be -3, so the energy is -2.
 
-This program does not print the embedding used by ``EmbeddingComposite``.
-It is possible to return the embedding but we don't do it here.
-
 Exercise 3a
 -----------
 
-Run the command
+At the command line, run the command:
 
 .. code-block:: bash
 
@@ -151,7 +145,7 @@ is represented by a chain of 2 qubits.
 Exercise 3b
 -----------
 
-Run the command
+At the command line, run the command:
 
 .. code-block:: bash
 
@@ -185,7 +179,7 @@ As discussed in Exercise 2b, a single physical qubit is mapped to each logical q
 Exercise 4a
 -----------
 
-Run the command
+At the command line, run the command:
 
 .. code-block:: bash
 
@@ -224,7 +218,7 @@ solutions, of higher energy, which may include chain breaks.
 Exercise 4b
 -----------
 
-Run the command
+At the command line, run the command:
 
 .. code-block:: bash
 
