@@ -14,8 +14,8 @@ numruns = 1000
 Q = {(0, 0): 2, (0, 1): -2, (0, 2): -2, (1, 2): 2}
 bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-2)
 
-sampler = EmbeddingComposite(DWaveSampler(solver={'topology__type__eq': 'pegasus'}))
+sampler = EmbeddingComposite(DWaveSampler(solver={'topology__type': 'pegasus'}))
 response = sampler.sample(bqm, chain_strength=chainstrength, num_reads=numruns)
 
-for smpl, energy in response.data(['sample', 'energy']):
-    print(smpl, energy)
+for sample, energy in response.data(['sample', 'energy']):
+    print(sample, energy)

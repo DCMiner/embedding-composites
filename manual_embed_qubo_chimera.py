@@ -36,7 +36,7 @@ from dwave.system.samplers import DWaveSampler
 
 numruns = 1000
 chainstrength = float(sys.argv[1])
-sampler = DWaveSampler(solver={'topology__type__eq': 'chimera'})
+sampler = DWaveSampler(solver={'topology__type': 'chimera'})
 
 # Add all the equations together
 Q = {(0, 0): 2,
@@ -52,5 +52,5 @@ bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-1-chainstrength)
 results = sampler.sample(bqm, num_reads=numruns)
 
 # print the results
-for smpl, energy in results.data(['sample', 'energy']):
-    print(smpl, energy)
+for sample, energy in results.data(['sample', 'energy']):
+    print(sample, energy)

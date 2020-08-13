@@ -29,7 +29,7 @@ bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-2)
 chainstrength = float(sys.argv[1])
 numruns = 1000
 
-dwave_sampler = DWaveSampler(solver={'topology__type__eq': 'chimera'})
+dwave_sampler = DWaveSampler(solver={'topology__type': 'chimera'})
 edges =  dwave_sampler.edgelist
 embedding = find_embedding(Q, edges)
 print(embedding)
