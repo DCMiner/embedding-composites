@@ -25,7 +25,7 @@ from dwave.system.samplers import DWaveSampler
 #
 # Constrain qubits 1 and 4 to have opposite values - but notice that we're
 # going to embed qubits 1 and 5 to have the same value
-# 2 q_1 q_4 - q_4 - 0.5 (q_1 + q_5) + 1
+# 2 q_1 q_4 - q_4 - 0.5 (q_1 + q_5)
 #
 # Constrain qubits 0 and 5 to have the same value - and yes, we will embed
 # 1 and 5 to have the same value
@@ -47,7 +47,7 @@ Q = {(0, 0): 2,
      (0, 5): -2,
      (1, 5): -2 * chainstrength}
 
-bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-1-chainstrength)
+bqm = dimod.BinaryQuadraticModel.from_qubo(Q, offset=-2-chainstrength)
 
 results = sampler.sample(bqm, num_reads=numruns)
 
