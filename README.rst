@@ -23,17 +23,24 @@ structure of the program. Notice the basic parts:
 - Obtain a Chimera sampler/solver
 - Define the Q matrix
 - Convert the Q matrix to a ``BinaryQuadraticModel``, so that we can add
-  the energy offset ``-1-chainstrength``
+  the energy offset ``-2-chainstrength``
 - Run the problem, using ``DWaveSampler``
 - Print the results
 
 In this exercise, we have explicitly programmed the embedding of qubits 1 
 and 5 into a chain. If you run the program with ``chainstrength`` 4 (the first
 command-line parameter), you should see that the first six solutions have 
-energy -4. They have energy -4 because one of the constraints is violated;
-the two friend relationships and one enemy relationship are not simultaneously
-solvable. That constraint has a penalty of 1, and we are using an offset of
--``chainstrength-1`` in the code, so the energy is should be -4.
+energy -6. 
+
+Why do these six solutions have energy ``-6``?
+When we formulated the equations, we designed them to have a lowest energy
+of ``-3`` if all three equations are satisfied. When we added in the chain, 
+though, we added in an additional constant of ``-chainstrength``.
+For ``chainstrength`` of 4, the lowest possible energy is then ``-7``.
+However, the solutions have energy -2 because one of the constraints is 
+violated; the two friend relationships and one enemy relationship are not 
+simultaneously solvable. That constraint has a penalty of 1, and so the
+energies should be ``-6``.
 
 If you run the program with ``chainstrength`` 0.4, you will see a different
 solution with lowest energy, and that solution has different values in
