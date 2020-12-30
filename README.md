@@ -1,18 +1,16 @@
-====================
-Embedding Composites
-====================
+# Embedding Composites
 
 This exercise contains seven small programs which illustrate the use of 
 embedding, and embedding composites, in Ocean and on the D-Wave QPUs.
 
-Exercise 1 
-----------
+## Exercise 1 
 
-At the command line, run the command:
+To run the demo, at the command line, type:
 
-.. code-block:: bash
 
-  python manual_embed_qubo_chimera.py 4
+```bash
+python manual_embed_qubo_chimera.py 4
+```
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -53,14 +51,14 @@ terms in the QUBO.
 
 Qubits 0, 1, 4 and 5 are found in the first unit cell in a Chimera QPU.
 
-Exercise 2a 
------------
+## Exercise 2a
 
-At the command line, run the command:
+To run the demo, at the command line, type:
 
-.. code-block:: bash
 
-  python qpu_embed_chimera.py 4
+```bash
+python qpu_embed_chimera.py 4
+```
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -82,14 +80,14 @@ For ``chainstrength`` 4, the first six
 solutions should have the same energy, -2. One constraint is broken, and
 if all the relationships held, the energy would be -3, so the energy is -2.
 
-Exercise 2b
------------
+## Exercise 2b
 
-Run the command:
+To run the demo, at the command line, type:
 
-.. code-block:: bash
 
-  python qpu_embed_pegasus.py 4
+```bash
+python qpu_embed_pegasus.py 4
+```
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -113,14 +111,14 @@ different positive values. There should be the same solutions as in the
 previous problem; energy -2. One constraint is broken, and
 if all the relationships held, the energy would be -3, so the energy is -2.
 
-Exercise 3a
------------
+## Exercise 3a
 
-At the command line, run the command:
+To run the demo, at the command line, type:
 
-.. code-block:: bash
 
-  python lazy_fixed_embedding_composite_chimera.py 4
+```bash
+python lazy_fixed_embedding_composite_chimera.py 4
+```
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -149,14 +147,15 @@ The embedding may look something like this:
 Variables 0 and 1 are represented by a single physical qubit, and variable 2
 is represented by a chain of 2 qubits.
 
-Exercise 3b
------------
+## Exercise 3b
 
-At the command line, run the command:
+To run the demo, at the command line, type:
 
-.. code-block:: bash
 
-  python lazy_fixed_embedding_composite_pegasus.py 4
+```bash
+python lazy_fixed_embedding_composite_pegasus.py 4
+```
+
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -183,14 +182,15 @@ The embedding may look something like this:
 
 As discussed in Exercise 2b, a single physical qubit is mapped to each logical qubit. The ``chainstrength`` shouldn't matter here since there are no chains.
 
-Exercise 4a
------------
+## Exercise 4a
 
-At the command line, run the command:
+To run the demo, at the command line, type:
 
-.. code-block:: bash
 
-  python miner_qpu_chimera.py 4
+```bash
+python miner_qpu_chimera.py 4
+```
+
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -222,14 +222,15 @@ energy and there is no reason to prefer one over another. There should be
 no chain breaks in those first six solutions. There may be additional
 solutions, of higher energy, which may include chain breaks.
 
-Exercise 4b
------------
+## Exercise 4b
 
-At the command line, run the command:
+To run the demo, at the command line, type:
 
-.. code-block:: bash
 
-  python miner_qpu_pegasus.py
+```bash
+python miner_qpu_pegasus.py
+```
+
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -261,8 +262,7 @@ Note also that two additional columns have been added, ``num_occurrences`` and
 energy and there is no reason to prefer one over another. There should be
 no chain breaks in those first six solutions.
 
-Exercise 5
-----------
+## Exercise 5
 
 The program ``embedding_assignment.py`` is an exercise for students.
 It is a Friends & Enemies problem with 5 individuals.
@@ -273,8 +273,10 @@ Students are given the graph, and must create the QUBO dictionary (Q) that is
 provided to the D-Wave QPU and choose appropriate values for ``chainstrength``
 and ``numruns``.
 
-To run your program at the command line, 
-type ``python embedding_assignment.py``. 
+To run your program at the command line, type
+```bash
+python embedding_assignment.py
+```
 
 If you're running in the Leap IDE, open a Terminal, and then run this command.
 
@@ -288,3 +290,7 @@ two solutions to the problem:
 
 The string is the ``sample``, and the second is the ``energy``. There should 
 be two lowest-energy states for the problem.
+
+## License
+
+Released under the Apache License 2.0. See [LICENSE](LICENSE) file.
